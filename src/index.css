@@ -160,8 +160,7 @@
 
   /* Product Cards */
   .product-card {
-    @apply bg-card rounded-xl border border-border shadow-sm hover:shadow-medium transition-all duration-300;
-    box-shadow: var(--shadow-soft);
+    @apply bg-card rounded-xl border border-border shadow-soft transition-all duration-300;
   }
 
   .product-card:hover {
