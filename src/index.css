@@ -190,7 +190,7 @@
 
   /* Category Cards */
   .category-card {
-    @apply relative overflow-hidden rounded-2xl group cursor-pointer;
+    @apply relative overflow-hidden rounded-2xl cursor-pointer;
     background: var(--gradient-card);
     box-shadow: var(--shadow-soft);
     transition: var(--transition-smooth);
