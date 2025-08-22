@@ -1,42 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* JoushFoods Design System - Premium Indian Food Brand */
 
 @layer base {
   :root {
+    /* Brand Colors - Midnight Blue Primary */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 84% 4.9%;
 
+    /* JoushFoods Brand Colors */
+    --primary: 220 100% 12%; /* Midnight Blue #0B1A3A */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 220 85% 25%;
+    --primary-dark: 220 100% 8%;
+
+    /* Gold Accent for CTAs */
+    --accent: 44 100% 48%; /* Gold #F4B400 */
+    --accent-foreground: 220 100% 12%;
+    --accent-light: 44 100% 65%;
+
+    /* Success, Warning, Danger */
+    --success: 145 63% 42%; /* #19A974 */
+    --success-foreground: 0 0% 100%;
+    --warning: 44 100% 50%; /* #FFB100 */
+    --warning-foreground: 220 100% 12%;
+    --destructive: 4 90% 48%; /* #D93025 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 84% 4.9%;
+    --surface: 220 85% 18%; /* #0F224A */
+    --surface-foreground: 0 0% 100%;
 
+    /* Neutral Grays */
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 9% 46%; /* #667085 */
+    --border: 220 27% 84%; /* #243B67 variations */
+    --input: 220 13% 91%;
+    --ring: 220 100% 12%;
+
+    /* Secondary */
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 220 100% 12%;
+
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 25px -5px hsl(var(--primary) / 0.15);
+    --shadow-large: 0 25px 50px -12px hsl(var(--primary) / 0.25);
+    --shadow-accent: 0 8px 25px -5px hsl(var(--accent) / 0.3);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,12 +126,162 @@ All colors MUST be HSL.
   }
 }
 
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-medium;
+  }
+}
+
+@layer components {
+  /* Hero Components */
+  .hero-section {
+    background: var(--gradient-hero);
+    @apply relative overflow-hidden;
+  }
+
+  .hero-title {
+    @apply text-4xl md:text-6xl font-bold text-primary-foreground leading-tight;
+    text-shadow: 0 2px 4px hsl(var(--primary) / 0.3);
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-xl text-primary-foreground/90 leading-relaxed;
+  }
+
+  /* Product Cards */
+  .product-card {
+    @apply bg-card rounded-xl border border-border shadow-sm hover:shadow-medium transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .product-image {
+    @apply w-full h-48 object-cover rounded-t-xl;
+  }
+
+  .product-badge {
+    @apply absolute top-3 left-3 px-2 py-1 text-xs font-medium rounded-full;
+  }
+
+  .badge-new {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .badge-bestseller {
+    @apply bg-success text-success-foreground;
+  }
+
+  .badge-spicy {
+    @apply bg-destructive text-destructive-foreground;
+  }
+
+  /* Category Cards */
+  .category-card {
+    @apply relative overflow-hidden rounded-2xl group cursor-pointer;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+  }
+
+  .category-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .category-image {
+    @apply w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110;
+  }
+
+  /* Button Variants */
+  .btn-hero {
+    background: var(--gradient-accent);
+    @apply text-accent-foreground font-semibold px-8 py-4 rounded-full shadow-accent hover:shadow-lg transform hover:scale-105;
+    transition: var(--transition-bounce);
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+  }
+
+  /* Animations */
+  .fade-in {
+    @apply opacity-0 translate-y-4;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .fade-in-delay {
+    @apply opacity-0 translate-y-4;
+    animation: fadeIn 0.6s ease-out 0.2s forwards;
+  }
+
+  .slide-up {
+    @apply opacity-0 translate-y-8;
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Food Category Specific */
+  .spice-indicator {
+    @apply flex items-center gap-1;
+  }
+
+  .spice-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .spice-mild {
+    @apply bg-success;
+  }
+
+  .spice-medium {
+    @apply bg-warning;
+  }
+
+  .spice-hot {
+    @apply bg-destructive;
+  }
+
+  /* Trust Badges */
+  .trust-badge {
+    @apply flex items-center gap-2 px-4 py-2 bg-muted rounded-lg text-sm font-medium text-muted-foreground;
+  }
+
+  /* Newsletter Section */
+  .newsletter-section {
+    background: var(--gradient-primary);
+    @apply text-primary-foreground;
   }
 }
