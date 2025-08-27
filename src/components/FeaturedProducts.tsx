@@ -2,6 +2,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { featuredProducts } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function FeaturedProducts() {
   return (
@@ -17,10 +18,12 @@ export function FeaturedProducts() {
             </p>
           </div>
           
-          <Button variant="outline" className="hidden md:flex items-center gap-2">
-            View All
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <Link to="/products">
+            <Button variant="outline" className="hidden md:flex items-center gap-2">
+              View All
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -36,9 +39,11 @@ export function FeaturedProducts() {
         </div>
 
         <div className="text-center mt-8 md:hidden">
-          <Button variant="outline">
-            View All Products
-          </Button>
+          <Link to="/products">
+            <Button variant="outline">
+              View All Products
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

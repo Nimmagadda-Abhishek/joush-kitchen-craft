@@ -5,6 +5,7 @@ import authenticSnacks from "@/assets/authentic-snacks.jpg";
 import pickles from "@/assets/pickles.jpg";
 import sweets from "@/assets/sweets.jpg";
 import dryFruits from "@/assets/dry-fruits.jpg";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -46,7 +47,7 @@ const categories = [
 
 export function CategorySection() {
   return (
-    <section className="py-16 bg-muted/30">
+    <section id="categories" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 slide-up">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -60,38 +61,39 @@ export function CategorySection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
-            <Card 
-              key={category.id} 
-              className="category-card fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="relative">
-                <img 
-                  src={category.image} 
-                  alt={category.name}
-                  className="category-image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
-                
-                <CardContent className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold">{category.name}</h3>
-                    <p className="text-primary-foreground/90 text-sm">
-                      {category.description}
-                    </p>
-                    <div className="flex items-center justify-between pt-2">
-                      <span className="text-sm font-medium text-primary-foreground/80">
-                        {category.itemCount} products
-                      </span>
-                      <div className="flex items-center gap-1 text-sm font-medium group">
-                        <span>Shop Now</span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <Link to={`/category/${category.id}`} key={category.id}>
+              <Card 
+                className="category-card fade-in hover:shadow-lg transition-shadow"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative">
+                  <img 
+                    src={category.image} 
+                    alt={category.name}
+                    className="category-image"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+                  
+                  <CardContent className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold">{category.name}</h3>
+                      <p className="text-primary-foreground/90 text-sm">
+                        {category.description}
+                      </p>
+                      <div className="flex items-center justify-between pt-2">
+                        <span className="text-sm font-medium text-primary-foreground/80">
+                          {category.itemCount} products
+                        </span>
+                        <div className="flex items-center gap-1 text-sm font-medium group">
+                          <span>Shop Now</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </div>
-            </Card>
+                  </CardContent>
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

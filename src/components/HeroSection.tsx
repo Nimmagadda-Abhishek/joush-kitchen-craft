@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Truck } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
+import { Link, useLocation } from "react-router-dom";
+
+
+const navigationLinks = [
+  { name: "Home", path: "/" },
+  { name: "Products", path: "/products" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" }
+];
 
 export function HeroSection() {
   return (
@@ -30,13 +39,17 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 fade-in-delay">
-              <Button variant="hero" size="lg" className="group">
-                Shop Now
-                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="bg-background/10 border-primary-foreground text-primary-foreground hover:bg-background/20">
-                Explore Categories
-              </Button>
+              <Link to="/products">
+                <Button variant="hero" size="lg" className="group">
+                  Shop Now
+                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link to="/category/south-indian-snacks">
+                <Button variant="outline" size="lg" className="bg-background/10 border-primary-foreground text-primary-foreground hover:bg-background/20">
+                  Explore Categories
+                </Button>
+              </Link>
             </div>
 
             {/* Trust Indicators */}

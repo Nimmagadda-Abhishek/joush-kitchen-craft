@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/hooks/useCart";
 import { Badge } from "@/components/ui/badge";
+import { Link, useLocation } from "react-router-dom";
+import path from "path";
 
 const categories = [
   "South Indian Snacks",
@@ -12,9 +14,18 @@ const categories = [
   "Dry Fruits"
 ];
 
+const navigationLinks = [
+  { name: "Home", path: "/" },
+    {name: "categories", path: "/#categories"},
+  { name: "Products", path: "/products" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" }
+];
+
 export function Header() {
   const { openCart, getItemCount } = useCart();
   const itemCount = getItemCount();
+  const location = useLocation();
 
   return (
     <>
@@ -33,9 +44,9 @@ export function Header() {
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
               </Button>
-              <h1 className="text-2xl md:text-3xl font-bold text-primary font-serif">
-                JoushFoods
-              </h1>
+              <Link to="/" className="text-2xl md:text-3xl font-bold text-primary font-serif hover:text-primary/80 transition-colors">
+                JoshnaFoods
+              </Link>
             </div>
 
             {/* Search Bar */}
@@ -56,43 +67,56 @@ export function Header() {
                 <span className="text-sm">Help</span>
               </Button>
               
-              <Button variant="ghost" size="icon">
-                <User className="h-5 w-5" />
-              </Button>
+              <Link to="/profile">
+                <Button variant="ghost" size="icon">
+                  <User className="h-5 w-5" />
+                </Button>
+              </Link>
               
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="relative"
-                onClick={openCart}
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {itemCount > 0 && (
-                  <Badge 
-                    variant="destructive" 
-                    className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
-                  >
-                    {itemCount}
-                  </Badge>
-                )}
-              </Button>
+              <Link to="/cart">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="relative"
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                  {itemCount > 0 && (
+                    <Badge 
+                      variant="destructive" 
+                      className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
+                    >
+                      {itemCount}
+                    </Badge>
+                  )}
+                </Button>
+              </Link>
             </div>
           </div>
 
           {/* Navigation */}
-          <div className="hidden md:flex items-center justify-center pb-4">
+          <div className="hidden md:flex items-center justify-center pb-2">
             <nav className="flex space-x-8">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className="text-foreground hover:text-primary font-medium transition-colors duration-200 relative group"
+              {navigationLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`font-medium transition-colors duration-200 relative group ${
+                    location.pathname === link.path 
+                      ? 'text-primary' 
+                      : 'text-foreground hover:text-primary'
+                  }`}
                 >
-                  {category}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </button>
+                  {link.name}
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
+                </Link>
               ))}
             </nav>
           </div>
+
+          {/* Categories */}
+
 
           {/* Mobile Search */}
           <div className="md:hidden pb-4">

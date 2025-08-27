@@ -2,6 +2,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Shield, Award } from
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -67,15 +68,42 @@ export function Footer() {
             <div>
               <h4 className="font-semibold text-surface-foreground mb-4">Quick Links</h4>
               <div className="space-y-3">
-                {["About Us", "Our Story", "Quality & Hygiene", "Bulk Orders", "Careers", "Press"].map((link) => (
-                  <a 
-                    key={link}
-                    href="#" 
-                    className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
-                  >
-                    {link}
-                  </a>
-                ))}
+                <Link 
+                  to="/about"
+                  className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  About Us
+                </Link>
+                <Link 
+                  to="/products"
+                  className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  Our Products
+                </Link>
+                <Link 
+                  to="/contact"
+                  className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  Contact Us
+                </Link>
+                <a 
+                  href="#" 
+                  className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  Quality & Hygiene
+                </a>
+                <a 
+                  href="#" 
+                  className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  Bulk Orders
+                </a>
+                <a 
+                  href="#" 
+                  className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  Careers
+                </a>
               </div>
             </div>
 
@@ -83,7 +111,7 @@ export function Footer() {
             <div>
               <h4 className="font-semibold text-surface-foreground mb-4">Customer Care</h4>
               <div className="space-y-3">
-                {["Contact Us", "Shipping & Returns", "Size Guide", "Track Your Order", "FAQs", "Terms & Conditions"].map((link) => (
+                {["Contact Us","Track Your Order", "FAQs", "Terms & Conditions"].map((link) => (
                   <a 
                     key={link}
                     href="#" 
