@@ -6,7 +6,8 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "joush-kitchen-craft-1.onrender.com",
+    // Changed host to localhost to fix EADDRNOTAVAIL error
+    host: "localhost",
     port: 8080,
   },
   plugins: [
