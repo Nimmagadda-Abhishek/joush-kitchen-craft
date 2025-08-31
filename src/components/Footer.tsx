@@ -12,7 +12,7 @@ export function Footer() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold">
-              Stay Updated with JoushFoods
+              Stay Updated with JoshnaFoods
             </h3>
             <p className="text-primary-foreground/90">
               Get exclusive offers, new product launches, and authentic recipes delivered to your inbox
@@ -43,7 +43,7 @@ export function Footer() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold font-serif text-accent mb-2">
-                  JoushFoods
+                  JoshnaFoods
                 </h2>
                 <p className="text-surface-foreground/80 text-sm leading-relaxed">
                   Bringing authentic South Indian flavors to your doorstep. 
@@ -185,7 +185,7 @@ export function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-surface-foreground/60 text-sm text-center md:text-left">
-              © 2024 JoushFoods. All rights reserved. Made with ❤️ for authentic food lovers.
+              © 2024 JoshnaFoods. All rights reserved. Made with ❤️ for authentic food lovers.
             </p>
             
             <div className="flex items-center gap-6">

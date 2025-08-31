@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,61 @@ import {
   Gift,
   AlertCircle
 } from "lucide-react";
+
+// New component for image hover effect
+const ProductImageWithHover = ({ images, alt, className }: { images: string[]; alt: string; className?: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // By using a stringified version of the images array as a dependency, we ensure
+  // the effect only re-runs when the image URLs actually change, not on every re-render.
+  const imagesJson = JSON.stringify(images);
+
+  useEffect(() => {
+    const currentImages = JSON.parse(imagesJson) as string[];
+    if (isHovering && currentImages.length > 1) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % currentImages.length);
+      }, 800); // Change image every 800ms
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      setCurrentIndex(0);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isHovering, imagesJson]);
+
+  if (!images || images.length === 0) {
+    // Fallback for items without multiple images
+    return <div className={`${className} bg-muted rounded-lg`}></div>;
+  }
+
+  return (
+    <div
+      className={`relative ${className} overflow-hidden rounded-lg`}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+    </div>
+  );
+};
 
 const Cart = () => {
   const { toast } = useToast();
@@ -107,9 +163,11 @@ const Cart = () => {
                   Looks like you haven't added any items to your cart yet.
                 </p>
               </div>
-              <Button size="lg" className="btn-hero">
-                <ShoppingBag className="h-4 w-4 mr-2" />
-                Start Shopping
+              <Button size="lg" className="btn-hero" asChild>
+                <Link to="/">
+                  <ShoppingBag className="h-4 w-4 mr-2" />
+                  Start Shopping
+                </Link>
               </Button>
             </CardContent>
           </Card>
@@ -175,10 +233,15 @@ const Cart = () => {
                 <Card key={`${item.id}-${item.variant}`} className="product-card">
                   <CardContent className="p-6">
                     <div className="flex gap-4">
-                      <img 
-                        src={item.image} 
+                      {/* 
+                        NOTE: The item from useCart() should ideally have an `images` array.
+                        For demonstration, we're creating a dummy array if it doesn't exist.
+                        A second image is hardcoded here. In a real app, this would come from your data source.
+                      */}
+                      <ProductImageWithHover
+                        images={item.images || [item.image, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D']}
                         alt={item.name}
-                        className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
+                        className="w-20 h-20 flex-shrink-0"
                       />
                       
                       <div className="flex-1 space-y-2">
@@ -337,9 +400,11 @@ const Cart = () => {
                   <span>₹{total}</span>
                 </div>
 
-                <Button size="lg" className="w-full btn-hero">
-                  Proceed to Checkout
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                <Button size="lg" className="w-full btn-hero" asChild>
+                  <Link to="/checkout">
+                    Proceed to Checkout
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Link>
                 </Button>
 
                 {/* Trust Badges */}
@@ -361,9 +426,11 @@ const Cart = () => {
             </Card>
 
             {/* Continue Shopping */}
-            <Button variant="outline" className="w-full">
-              <ShoppingBag className="h-4 w-4 mr-2" />
-              Continue Shopping
+            <Button variant="outline" className="w-full" asChild>
+              <Link to="/">
+                <ShoppingBag className="h-4 w-4 mr-2" />
+                Continue Shopping
+              </Link>
             </Button>
           </div>
         </div>

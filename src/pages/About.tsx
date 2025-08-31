@@ -43,12 +43,12 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: "2018", title: "Founded", description: "Started with a passion for authentic South Indian flavors" },
-    { year: "2019", title: "First Product Launch", description: "Introduced traditional murukku and pickles" },
-    { year: "2021", title: "FSSAI Certification", description: "Achieved food safety certification" },
-    { year: "2022", title: "Pan-India Delivery", description: "Expanded delivery across all major cities" },
-    { year: "2023", title: "ISO Certification", description: "Achieved ISO 22000:2018 certification" },
-    { year: "2024", title: "50,000+ Happy Customers", description: "Serving authentic flavors nationwide" }
+    { year: "2017", title: "Founded", description: "Started with a passion for authentic South Indian flavors" },
+    { year: "2017", title: "First Product Launch", description: "Introduced traditional murukku and pickles" },
+    { year: "2024", title: "FSSAI Certification", description: "Achieved food safety certification" },
+    { year: "2025", title: "Pan-India Delivery", description: "Expanded delivery across all major cities" },
+    { year: "2025", title: "ISO Certification", description: "Achieved ISO 22000:2018 certification" },
+    { year: "2025", title: "50,000+ Happy Customers", description: "Serving authentic flavors nationwide" }
   ];
 
   const team = [
@@ -104,20 +104,13 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  JoushFoods began in 2018 when our founder, Priya Krishnan, realized that authentic 
-                  South Indian snacks and pickles were hard to find outside of South India. What started 
-                  as sharing homemade murukku with friends and neighbors quickly grew into a mission to 
-                  preserve and share traditional recipes.
+                  Founded in 2017, Joshna Foods is a new-age food & beverage brand with a passion for bringing authentic flavors to modern tables. From hand-crafted snacks to traditional pickles and refreshing beverages, every product is made to deliver a taste that feels like home while meeting today’s standards of quality and hygiene.
                 </p>
                 <p>
-                  Every product we create follows time-tested recipes that have been passed down through 
-                  generations. We believe that food is not just about taste—it's about memories, culture, 
-                  and the love that goes into every preparation.
+                  The brand was envisioned by K.V. Ramana Rao Garu, a Mechanical Engineer with 20+ years of industrial expertise and the proud owner of Uday Group Industries. Known for building strong foundations in the construction industry, he now brings the same values of precision, reliability, and innovation into the world of food.
                 </p>
                 <p>
-                  Today, we're proud to serve over 50,000 customers across India, bringing the authentic 
-                  taste of South Indian cuisine to homes everywhere, while maintaining the same care and 
-                  attention that went into those first batches made in our founder's kitchen.
+                  At Joshna Foods, we believe food is not just about eating—it’s about memories, culture, and togetherness. That’s why every recipe is crafted with care, ensuring that our customers enjoy pure flavors, uncompromised quality, and a touch of tradition in every bite.
                 </p>
               </div>
             </div>
@@ -210,7 +203,7 @@ const About = () => {
               Meet Our Team
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The passionate people behind JoushFoods, dedicated to bringing you 
+              The passionate people behind JouhFoods, dedicated to bringing you 
               the finest authentic South Indian flavors.
             </p>
           </div>

@@ -62,10 +62,12 @@ export function Header() {
 
             {/* Right Actions */}
             <div className="flex items-center space-x-2">
+              <Link to='/contact'>
               <Button variant="ghost" size="sm" className="hidden md:flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="text-sm">Help</span>
               </Button>
+              </Link>
               
               <Link to="/profile">
                 <Button variant="ghost" size="icon">
