@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: "joush-kitchen-craft-1.onrender.com",
     port: 8080,
   },
   plugins: [
