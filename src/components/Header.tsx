@@ -45,7 +45,7 @@ export function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
               <Link to="/">
-                <img src={logo} alt="JoshnaFoods logo" className="h-[8vh] w-auto hover:opacity-80 transition-opacity" />
+                <img src={logo} alt="JoshnaFoods logo" className="h-[26vh] w-auto hover:opacity-80 transition-opacity" />
               </Link>
             </div>
 
