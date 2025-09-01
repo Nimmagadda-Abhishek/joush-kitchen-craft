@@ -1,2 +1,3 @@
-# TODO
-- [ ] Update product variants in src/data/products.ts to standardize to 250g, 500g, 1kg with proportional pricing
+- [x] Add favicon link to head tag in index.html
+- [x] Replace text logo with image in Header.tsx
+- [x] Replace text logo with image in Footer.tsx

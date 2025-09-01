@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useCart } from "@/hooks/useCart";
 import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "react-router-dom";
-import path from "path";
+import logo from "@/assets/logo.png";
 
 const categories = [
   "South Indian Snacks",
@@ -44,8 +44,8 @@ export function Header() {
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
               </Button>
-              <Link to="/" className="text-2xl md:text-3xl font-bold text-primary font-serif hover:text-primary/80 transition-colors">
-                JoshnaFoods
+              <Link to="/">
+                <img src={logo} alt="JoshnaFoods logo" className="h-[8vh] w-auto hover:opacity-80 transition-opacity" />
               </Link>
             </div>
 

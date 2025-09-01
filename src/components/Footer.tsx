@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -42,9 +43,7 @@ export function Footer() {
             {/* Company Info */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold font-serif text-accent mb-2">
-                  JoshnaFoods
-                </h2>
+                <img src={logo} alt="JoshnaFoods logo" className="h-12 md:h-16 w-auto max-h-16 object-contain mb-2" />
                 <p className="text-surface-foreground/80 text-sm leading-relaxed">
                   Bringing authentic South Indian flavors to your doorstep. 
                   Crafted with love using traditional recipes and the finest ingredients.
