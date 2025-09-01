@@ -111,15 +111,32 @@ export function Footer() {
             <div>
               <h4 className="font-semibold text-surface-foreground mb-4">Customer Care</h4>
               <div className="space-y-3">
-                {["Contact Us","Track Your Order", "FAQs", "Terms & Conditions"].map((link) => (
-                  <a 
-                    key={link}
-                    href="#" 
-                    className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
-                  >
-                    {link}
-                  </a>
-                ))}
+                {["Contact Us","Track Your Order", "FAQs", "Terms & Conditions"].map((link) => {
+                  const hrefMap: Record<string, string> = {
+                    "Contact Us": "/contact",
+                    "Track Your Order": "/profile",
+                    "FAQs": "/faq",
+                    "Terms & Conditions": "/terms-and-conditions",
+                  };
+                  const href = hrefMap[link] || "#";
+                  return href !== "#" ? (
+                    <Link
+                      key={link}
+                      to={href}
+                      className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                    >
+                      {link}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link}
+                      href={href}
+                      className="block text-surface-foreground/70 hover:text-accent transition-colors text-sm"
+                    >
+                      {link}
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
@@ -192,9 +209,9 @@ export function Footer() {
               <a href="#" className="text-surface-foreground/60 hover:text-accent text-sm">
                 Privacy Policy
               </a>
-              <a href="#" className="text-surface-foreground/60 hover:text-accent text-sm">
+              <Link to="/terms-and-conditions" className="text-surface-foreground/60 hover:text-accent text-sm">
                 Terms of Service
-              </a>
+              </Link>
               <a href="#" className="text-surface-foreground/60 hover:text-accent text-sm">
                 Cookies
               </a>

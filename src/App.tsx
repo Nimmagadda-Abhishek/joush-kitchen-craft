@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 // Scroll to top on every route change and handle hash links
 const ScrollToTop = () => {
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/category/:slug" element={<Category />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
