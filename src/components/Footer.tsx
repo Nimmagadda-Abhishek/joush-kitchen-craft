@@ -130,7 +130,7 @@ export function Footer() {
                 <div className="flex items-start gap-3">
                   <Phone className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-surface-foreground/90 text-sm font-medium">+91 98765 43210</p>
+                    <p className="text-surface-foreground/90 text-sm font-medium">+91 9494054102</p>
                     <p className="text-surface-foreground/60 text-xs">Mon-Sat, 9AM-7PM</p>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export function Footer() {
                 <div className="flex items-start gap-3">
                   <MapPin className="h-4 w-4 text-accent mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-surface-foreground/90 text-sm">Chennai, Tamil Nadu</p>
+                    <p className="text-surface-foreground/90 text-sm">Hyderabad, Telangana</p>
                     <p className="text-surface-foreground/60 text-xs">Serving across India</p>
                   </div>
                 </div>

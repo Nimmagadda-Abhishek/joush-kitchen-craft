@@ -66,7 +66,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+91 98765 43210", "+91 98765 43211"],
+      details: ["+91 9494054102"],
       subtitle: "Mon-Sat, 9AM-7PM",
       color: "text-green-600"
     },
@@ -80,7 +80,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["123 Food Street", "Chennai, Tamil Nadu 600001"],
+      details: ["402,4th floor,Flat No.1559&1760A,Gokul Trade Center", "Hyderabad, Telangana 500085"],
       subtitle: "Mon-Fri, 10AM-6PM",
       color: "text-purple-600"
     },
