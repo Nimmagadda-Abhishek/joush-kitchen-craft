@@ -49,10 +49,12 @@ export function Footer() {
                   Crafted with love using traditional recipes and the finest ingredients.
                 </p>
               </div>
-              
+
               <div className="flex space-x-4">
-                <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent">
-                  <Facebook className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent" asChild>
+                  <a href="https://www.facebook.com/joushnafoods/" target="_blank" rel="noopener noreferrer">
+                    <Facebook className="h-5 w-5" />
+                  </a>
                 </Button>
               <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent" asChild>
                 <a href="https://www.instagram.com/joushnafoods/" target="_blank" rel="noopener noreferrer">
@@ -207,8 +209,10 @@ export function Footer() {
             <p className="text-surface-foreground/60 text-sm text-center md:text-left">
               © 2024 JoshnaFoods. All rights reserved. Made with ❤️ for authentic food lovers.
             </p>
-            
-            <div className="flex items-center gap-6">
+            <p className="text-surface-foreground/60 text-sm text-center md:text-left mt-1">
+              Designed and developed by <a href="https://asiandigitalworld.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent underline">Asian Digital World</a>
+            </p>
+            <div className="flex items-center gap-6 mt-2">
               <a href="#" className="text-surface-foreground/60 hover:text-accent text-sm">
                 Privacy Policy
               </a>
