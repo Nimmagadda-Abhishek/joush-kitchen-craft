@@ -71,6 +71,9 @@ const Products = () => {
     { value: "3", label: "Hot" }
   ];
 
+  // New state for pickle type filter
+  const [pickleTypeFilter, setPickleTypeFilter] = useState<"all" | "veg" | "non-veg">("all");
+
   const sortOptions = [
     { value: "featured", label: "Featured" },
     { value: "price-low", label: "Price: Low to High" },
@@ -81,7 +84,7 @@ const Products = () => {
 
   const filteredProducts = useMemo(() => {
     const searchLower = searchQuery.toLowerCase();
-    let filtered = products.filter(product => {
+    const filtered = products.filter(product => {
       // Search filter with recommendations
       if (searchQuery) {
         const nameMatch = product.name.toLowerCase().includes(searchLower);
@@ -96,6 +99,16 @@ const Products = () => {
       // Category filter
       if (selectedCategory !== "all" && product.category !== selectedCategory) {
         return false;
+      }
+
+      // Pickle type filter (only when category is Pickles)
+      if (selectedCategory === "Pickles" && pickleTypeFilter !== "all") {
+        if (pickleTypeFilter === "veg" && product.subcategory !== "Veg Pickles") {
+          return false;
+        }
+        if (pickleTypeFilter === "non-veg" && product.subcategory === "Veg Pickles") {
+          return false;
+        }
       }
 
       // Price filter
@@ -145,7 +158,7 @@ const Products = () => {
     }
 
     return filtered;
-  }, [searchQuery, selectedCategory, sortBy, priceRange, spiceLevel]);
+  }, [searchQuery, selectedCategory, sortBy, priceRange, spiceLevel, pickleTypeFilter]);
 
   const clearFilters = () => {
     setSearchQuery("");
@@ -258,25 +271,64 @@ const Products = () => {
 
                 <Separator />
 
-                {/* Spice Level */}
+              {/* Spice Level */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium">Spice Level</label>
+                <Select value={spiceLevel} onValueChange={setSpiceLevel}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {spiceLevels.map((level) => (
+                      <SelectItem key={level.value} value={level.value}>
+                        {level.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Pickle Type Filter - only show if Pickles category is selected */}
+              {selectedCategory === "Pickles" && (
                 <div className="space-y-3">
-                  <label className="text-sm font-medium">Spice Level</label>
-                  <Select value={spiceLevel} onValueChange={setSpiceLevel}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {spiceLevels.map((level) => (
-                        <SelectItem key={level.value} value={level.value}>
-                          {level.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <label className="text-sm font-medium">Pickle Type</label>
+                  <div className="flex gap-2">
+                    <button
+                      className={`px-3 py-1 rounded-md text-sm transition-colors ${
+                        pickleTypeFilter === "all"
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-muted"
+                      }`}
+                      onClick={() => setPickleTypeFilter("all")}
+                    >
+                      All
+                    </button>
+                    <button
+                      className={`px-3 py-1 rounded-md text-sm transition-colors ${
+                        pickleTypeFilter === "veg"
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-muted"
+                      }`}
+                      onClick={() => setPickleTypeFilter("veg")}
+                    >
+                      Veg
+                    </button>
+                    <button
+                      className={`px-3 py-1 rounded-md text-sm transition-colors ${
+                        pickleTypeFilter === "non-veg"
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-muted"
+                      }`}
+                      onClick={() => setPickleTypeFilter("non-veg")}
+                    >
+                      Non-Veg
+                    </button>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
 
           {/* Main Content */}
           <div className="flex-1 space-y-6">
@@ -378,21 +430,71 @@ const Products = () => {
               </div>
             )}
 
-            {/* Products Grid */}
+            {/* Products Grid with Veg and Non-Veg Pickles Separator */}
             {filteredProducts.length > 0 ? (
-              <div className={
-                viewMode === "grid" 
-                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                  : "space-y-4"
-              }>
-                {filteredProducts.map((product) => (
-                  <ProductCard 
-                    key={product.id} 
-                    product={product}
-                    layout={viewMode}
-                  />
-                ))}
-              </div>
+              selectedCategory === "Pickles" ? (
+                <div className="space-y-8">
+                  {/* Veg Pickles Section */}
+                  {filteredProducts.filter(product => product.subcategory === "Veg Pickles").length > 0 && (
+                    <div>
+                      <h2 className="text-xl font-semibold mb-4">Veg Pickles</h2>
+                      <div className={
+                        viewMode === "grid"
+                          ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                          : "space-y-4"
+                      }>
+                        {filteredProducts
+                          .filter(product => product.subcategory === "Veg Pickles")
+                          .map(product => (
+                            <ProductCard
+                              key={product.id}
+                              product={product}
+                              layout={viewMode}
+                            />
+                          ))
+                        }
+                      </div>
+                    </div>
+                  )}
+
+              {/* Non-Veg Pickles Section */}
+              {filteredProducts.filter(product => product.subcategory !== "Veg Pickles").length > 0 && (
+                <div>
+                  <h2 className="text-xl font-semibold mb-4">Non-Veg Pickles</h2>
+                  <div className={
+                    viewMode === "grid"
+                      ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                      : "space-y-4"
+                  }>
+                    {filteredProducts
+                      .filter(product => product.subcategory !== "Veg Pickles")
+                      .map(product => (
+                        <ProductCard
+                          key={product.id}
+                          product={product}
+                          layout={viewMode}
+                        />
+                      ))
+                    }
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className={
+              viewMode === "grid"
+                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                : "space-y-4"
+            }>
+              {filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  layout={viewMode}
+                />
+              ))}
+            </div>
+          )
             ) : (
               <Card className="p-12 text-center">
                 <CardContent className="space-y-4">

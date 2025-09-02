@@ -9,6 +9,7 @@ export interface Product {
   id: string;
   name: string;
   category: string;
+  subcategory?: string;
   price: number;
   originalPrice?: number;
   image: string;
@@ -103,7 +104,9 @@ export function ProductCard({ product, layout = "grid" }: ProductCardProps) {
                 </h3>
 
                 {/* Category */}
-                <p className="text-sm text-muted-foreground">{product.category}</p>
+                <p className="text-sm text-muted-foreground">
+                  {product.subcategory ? `${product.category} - ${product.subcategory}` : product.category}
+                </p>
 
                 {/* Rating & Reviews */}
                 <div className="flex items-center gap-2">

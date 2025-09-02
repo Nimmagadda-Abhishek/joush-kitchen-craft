@@ -121,21 +121,6 @@ export const products: Product[] = [
     ]
   },
   {
-    id: "pakoda-mix",
-    name: "Pakkoda Mix",
-    category: "South Indian Snacks",
-    price: 200,
-    image: "https://www.yummyfoodrecipes.com/resources/picture/org/Monsoon-Special-Mixed.jpg",
-    rating: 4.2,
-    reviewCount: 154,
-    spiceLevel: 2,
-    variants: [
-      { id: "250g", label: "250g", price: 200 },
-      { id: "500g", label: "500g", price: 370 },
-      { id: "1kg", label: "1kg", price: 800 }
-    ]
-  },
-  {
     id: "ribbon-pakoda",
     name: "Ribbon Pakoda",
     category: "South Indian Snacks",
@@ -224,53 +209,11 @@ export const products: Product[] = [
       { id: "500g", label: "500g", price: 400 },
       { id: "1kg", label: "1kg", price: 800 }
     ]
+
   },
+
   {
-    id: "bajji",
-    name: "Bajji",
-    category: "South Indian Snacks",
-    price: 140,
-    image: "https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_960,w_960//InstamartAssets/Bajji.webp",
-    rating: 4.2,
-    reviewCount: 130,
-    spiceLevel: 2,
-    variants: [
-      { id: "250g", label: "250g", price: 175 },
-      { id: "500g", label: "500g", price: 350 },
-      { id: "1kg", label: "1kg", price: 700 }
-    ]
-  },
-  {
-    id: "bonda",
-    name: "Bonda",
-    category: "South Indian Snacks",
-    price: 150,
-    image: "https://www.kamalascorner.com/wp-content/uploads/2024/11/cabbage-bonda.jpg",
-    rating: 4.5,
-    reviewCount: 150,
-    spiceLevel: 2,
-    variants: [
-      { id: "250g", label: "250g", price: 188 },
-      { id: "500g", label: "500g", price: 375 },
-      { id: "1kg", label: "1kg", price: 750 }
-    ]
-  },
-  {
-    id: "dahi-vada",
-    name: "Dahi Vada",
-    category: "South Indian Snacks",
-    price: 170,
-    image: "https://ministryofcurry.com/wp-content/uploads/2016/08/Dahi-Vada-5.jpg",
-    rating: 4.4,
-    reviewCount: 140,
-    spiceLevel: 1,
-    variants: [
-      { id: "250g", label: "250g", price: 213 },
-      { id: "500g", label: "500g", price: 425 },
-      { id: "1kg", label: "1kg", price: 850 }
-    ]
-  },
-  {
+
     id: "jhangri",
     name: "Jhangri",
     category: "South Indian Snacks",
@@ -314,37 +257,7 @@ export const products: Product[] = [
       { id: "500g", label: "500g", price: 388 },
       { id: "1kg", label: "1kg", price: 775 }
     ]
-  },
 
-  {
-    id: "pazhampori",
-    name: "Pazhampori",
-    category: "South Indian Snacks",
-    price: 165,
-    image: "https://foodgood.in/wp-content/uploads/2025/06/pazhampori-500x500.jpg",
-    rating: 4.4,
-    reviewCount: 120,
-    spiceLevel: 1,
-    variants: [
-      { id: "250g", label: "250g", price: 206 },
-      { id: "500g", label: "500g", price: 413 },
-      { id: "1kg", label: "1kg", price: 825 }
-    ]
-  },
-  {
-    id: "vattayappam",
-    name: "Vattayappam",
-    category: "South Indian Snacks",
-    price: 185,
-    image: "https://www.yummytummyaarthi.com/wp-content/uploads/2020/04/vattayappam-1.jpeg",
-    rating: 4.4,
-    reviewCount: 105,
-    spiceLevel: 1,
-    variants: [
-      { id: "250g", label: "250g", price: 231 },
-      { id: "500g", label: "500g", price: 463 },
-      { id: "1kg", label: "1kg", price: 925 }
-    ]
   },
 
   // Authentic Snacks
@@ -501,26 +414,13 @@ export const products: Product[] = [
       { id: "500g", label: "500g", price: 340 }
     ]
   },
-  {
-    id: "mini-samosa-snack",
-    name: "Mini Samosa (Snack)",
-    category: "Authentic Snacks",
-    price: 190,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeYXBG4c4BsyyssXKix3ctaQy1JLC9DjYAiw&s",
-    rating: 4.3,
-    reviewCount: 132,
-    spiceLevel: 2,
-    variants: [
-      { id: "250g", label: "250g", price: 190 },
-      { id: "500g", label: "500g", price: 360 }
-    ]
-  },
 
   // Pickles
   {
     id: "mango-pickle",
     name: "Authentic Mango Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 250,
     originalPrice: 300,
     image: pickles,
@@ -538,6 +438,7 @@ export const products: Product[] = [
     id: "lemon-pickle",
     name: "Tangy Lemon Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 220,
     image: "https://foodsandflavorsbyshilpi.com/wp-content/uploads/2021/06/FB-Thumnails-website-old-2021-06-26T221543.874.jpg",
     rating: 4.6,
@@ -553,6 +454,7 @@ export const products: Product[] = [
     id: "gongura-pickle",
     name: "Andhra Gongura Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 280,
     originalPrice: 340,
     image: "https://i0.wp.com/foodonfarmpickles.com/wp-content/uploads/2024/07/Gongura-scaled.webp?fit=1920%2C1281&ssl=1",
@@ -571,6 +473,7 @@ export const products: Product[] = [
     id: "garlic-pickle",
     name: "Garlic Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 240,
     image: "https://aahaaramonline.com/wp-content/uploads/2022/07/Andhra_Garlic_Pickle_Vellulli_Avakaya.jpg",
     rating: 4.5,
@@ -586,6 +489,7 @@ export const products: Product[] = [
     id: "tomato-pickle",
     name: "Tomato Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 230,
     image: "https://blissfulbitesbytay.com/wp-content/uploads/2021/09/Tomato-pickle-2.jpg?x19442",
     rating: 4.4,
@@ -601,6 +505,7 @@ export const products: Product[] = [
     id: "amla-pickle",
     name: "Amla (Gooseberry) Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 250,
     image: "https://palatesdesire.com/wp-content/uploads/2019/12/Amla_pickle_recipe@palates_desire-scaled.jpg",
     rating: 4.3,
@@ -616,6 +521,7 @@ export const products: Product[] = [
     id: "mixed-veg-pickle",
     name: "Mixed Vegetable Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 240,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnL2Rtkh4N1Ox3YCXMvmH4SlRxqNdLrSZECw&s",
     rating: 4.2,
@@ -631,6 +537,7 @@ export const products: Product[] = [
     id: "green-chilli-pickle",
     name: "Green Chilli Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 260,
     image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXAWFkPwvVcyaEP2ObpoZr6YvnH9HvvUrf204FSk4gjH_3D7vV2Vr4SUgZ0hZvc_xs3LaeR3zff1gDOE10Y-t0sSHcJOq6PyC4YUUL27fNWjDxGAMaBmCOq0svPPFKDWm8Vk2YSwfj940/s1600/lemon.chili.pickle.jpg",
     rating: 4.6,
@@ -646,6 +553,7 @@ export const products: Product[] = [
     id: "ginger-pickle",
     name: "Ginger Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 240,
     image: "https://thegrandsweets.com/wp-content/uploads/2022/10/GINGER-PICKLE.jpg",
     rating: 4.4,
@@ -661,6 +569,7 @@ export const products: Product[] = [
     id: "cut-mango-pickle",
     name: "Cut Mango Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 250,
     image: "https://www.whiskaffair.com/wp-content/uploads/2020/07/Kerala-Style-Mango-Pickle-2-3.jpg",
     rating: 4.5,
@@ -676,6 +585,7 @@ export const products: Product[] = [
     id: "lime-chilli-pickle",
     name: "Lime & Chilli Pickle",
     category: "Pickles",
+    subcategory: "Veg Pickles",
     price: 240,
     image: "https://newellbrands.imgix.net/e521d282-07f0-3656-9995-6d786ecbd18f/e521d282-07f0-3656-9995-6d786ecbd18f.jpeg?fm=jpg",
     rating: 4.3,
@@ -685,6 +595,136 @@ export const products: Product[] = [
       { id: "250g", label: "250g", price: 300 },
       { id: "500g", label: "500g", price: 550 },
       { id: "1kg", label: "1kg", price: 1100 }
+    ]
+  },
+
+  // Non-Veg Pickles
+  {
+    id: "chicken-pickle",
+    name: "Chicken Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 320,
+    image: "https://theflavorindia.com/wp-content/uploads/2024/11/chicken-pickle-with-bone.webp",
+    rating: 4.6,
+    reviewCount: 145,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 320 },
+      { id: "500g", label: "500g", price: 600 },
+      { id: "1kg", label: "1kg", price: 1150 }
+    ]
+  },
+  {
+    id: "mutton-pickle",
+    name: "Mutton Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 380,
+    image: "https://theflavorindia.com/wp-content/uploads/2024/11/chicken-pickle-with-bone.webp",
+    rating: 4.7,
+    reviewCount: 132,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 380 },
+      { id: "500g", label: "500g", price: 720 },
+      { id: "1kg", label: "1kg", price: 1400 }
+    ]
+  },
+  {
+    id: "prawns-pickle",
+    name: "Prawns Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 350,
+    image: "https://i.ytimg.com/vi/fngSotPjwUc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBfFkXBzneR8kR0_q6DjixvpYSqkg",
+    rating: 4.4,
+    reviewCount: 98,
+    spiceLevel: 2,
+    variants: [
+      { id: "250g", label: "250g", price: 350 },
+      { id: "500g", label: "500g", price: 650 },
+      { id: "1kg", label: "1kg", price: 1250 }
+    ]
+  },
+  {
+    id: "fish-pickle",
+    name: "Fish Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 300,
+    image: "https://mariasmenu.com/wp-content/uploads/Fish-Pickle.png",
+    rating: 4.5,
+    reviewCount: 156,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 300 },
+      { id: "500g", label: "500g", price: 550 },
+      { id: "1kg", label: "1kg", price: 1050 }
+    ]
+  },
+  {
+    id: "chicken-boneless-pickle",
+    name: "Chicken Boneless Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 340,
+    image: "https://m.media-amazon.com/images/X/bxt1/M/rbxt1RaiMBxzUks._SL640_QL75_FMwebp_.jpg",
+    rating: 4.5,
+    reviewCount: 123,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 340 },
+      { id: "500g", label: "500g", price: 650 },
+      { id: "1kg", label: "1kg", price: 1250 }
+    ]
+  },
+  {
+    id: "tokku-chicken-pickle",
+    name: "Tokku Chicken Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 360,
+    image: "https://m.media-amazon.com/images/X/bxt1/M/rbxt1RaiMBxzUks._SL640_QL75_FMwebp_.jpg",
+    rating: 4.6,
+    reviewCount: 134,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 360 },
+      { id: "500g", label: "500g", price: 680 },
+      { id: "1kg", label: "1kg", price: 1300 }
+    ]
+  },
+  {
+    id: "gongura-prawns-pickle",
+    name: "Gongura Prawns Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 420,
+    image: "https://images.meesho.com/images/products/167421124/ddshl_512.webp?width=512",
+    rating: 4.7,
+    reviewCount: 89,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 420 },
+      { id: "500g", label: "500g", price: 800 },
+      { id: "1kg", label: "1kg", price: 1550 }
+    ]
+  },
+  {
+    id: "gongura-chicken-pickle",
+    name: "Gongura Chicken Pickle",
+    category: "Pickles",
+    subcategory: "Non-Veg Pickles",
+    price: 380,
+    image: "https://images.meesho.com/images/products/167421124/ddshl_512.webp?width=512",
+    rating: 4.6,
+    reviewCount: 112,
+    spiceLevel: 3,
+    variants: [
+      { id: "250g", label: "250g", price: 380 },
+      { id: "500g", label: "500g", price: 720 },
+      { id: "1kg", label: "1kg", price: 1400 }
     ]
   },
 
@@ -837,6 +877,175 @@ export const products: Product[] = [
     variants: [
       { id: "250g", label: "250g", price: 360 },
       { id: "500g", label: "500g", price: 680 }
+    ]
+  },
+  {
+    id: "pootharekulu",
+    name: "Pootharekulu",
+    category: "Sweets",
+    price: 350,
+    image: "https://vellankifoods.com/cdn/shop/products/pootharekulu_dry_fruits_Pack_of_5pcs.jpg?v=1680181329",
+    rating: 4.5,
+    reviewCount: 150,
+    variants: [
+      { id: "250g", label: "250g", price: 350 },
+      { id: "500g", label: "500g", price: 650 },
+      { id: "1kg", label: "1kg", price: 1250 }
+    ]
+  },
+  {
+    id: "rasmali",
+    name: "Rasmali",
+    category: "Sweets",
+    price: 300,
+    image: "https://annapurn.com/wp-content/uploads/2025/03/ChatGPT-Image-Apr-6-2025-11_47_29-PM.png",
+    rating: 4.6,
+    reviewCount: 180,
+    variants: [
+      { id: "250g", label: "250g", price: 300 },
+      { id: "500g", label: "500g", price: 550 },
+      { id: "1kg", label: "1kg", price: 1050 }
+    ]
+  },
+  {
+    id: "madata-kaza",
+    name: "Madata Kaza",
+    category: "Sweets",
+    price: 400,
+    image: "https://pappaladabba.com/wp-content/uploads/2023/10/1000x1000v01mk.jpg",
+    rating: 4.4,
+    reviewCount: 120,
+    variants: [
+      { id: "250g", label: "250g", price: 400 },
+      { id: "500g", label: "500g", price: 750 },
+      { id: "1kg", label: "1kg", price: 1450 }
+    ]
+  },
+  {
+    id: "bobbattlu",
+    name: "Bobbattlu",
+    category: "Sweets",
+    price: 320,
+    image: "https://m.media-amazon.com/images/I/51+hkHj6ZuL._UF1000,1000_QL80_.jpg",
+    rating: 4.5,
+    reviewCount: 140,
+    variants: [
+      { id: "250g", label: "250g", price: 320 },
+      { id: "500g", label: "500g", price: 600 },
+      { id: "1kg", label: "1kg", price: 1150 }
+    ]
+  },
+  {
+    id: "palakova",
+    name: "Palakova",
+    category: "Sweets",
+    price: 380,
+    image: "https://athithigruhafoods.in/cdn/shop/files/Palakova-1.jpg?v=1716880548",
+    rating: 4.7,
+    reviewCount: 160,
+    variants: [
+      { id: "250g", label: "250g", price: 380 },
+      { id: "500g", label: "500g", price: 720 },
+      { id: "1kg", label: "1kg", price: 1380 }
+    ]
+  },
+  {
+    id: "kalakand",
+    name: "Kalakand",
+    category: "Sweets",
+    price: 450,
+    image: "https://www.nestleprofessional.in/sites/default/files/2022-07/Kalakand.jpg",
+    rating: 4.6,
+    reviewCount: 200,
+    variants: [
+      { id: "250g", label: "250g", price: 450 },
+      { id: "500g", label: "500g", price: 850 },
+      { id: "1kg", label: "1kg", price: 1650 }
+    ]
+  },
+  {
+    id: "mothichur-ladoo",
+    name: "Mothichur Ladoo",
+    category: "Sweets",
+    price: 280,
+    image: "https://www.murarisweets.com/cdn/shop/files/MotichoorLaddu4.png?v=1709528857&width=360",
+    rating: 4.4,
+    reviewCount: 130,
+    variants: [
+      { id: "250g", label: "250g", price: 280 },
+      { id: "500g", label: "500g", price: 520 },
+      { id: "1kg", label: "1kg", price: 1000 }
+    ]
+  },
+  {
+    id: "dood-peda",
+    name: "Dood Peda",
+    category: "Sweets",
+    price: 360,
+    image: "https://www.murarisweets.com/cdn/shop/files/MotichoorLaddu4.png?v=1709528857&width=360",
+    rating: 4.5,
+    reviewCount: 110,
+    variants: [
+      { id: "250g", label: "250g", price: 360 },
+      { id: "500g", label: "500g", price: 680 },
+      { id: "1kg", label: "1kg", price: 1300 }
+    ]
+  },
+  {
+    id: "arishelu",
+    name: "Arishelu",
+    category: "Sweets",
+    price: 320,
+    image: "https://c.ndtvimg.com/2018-10/9hmcmaig_ariselu_625x300_29_October_18.jpg",
+    rating: 4.4,
+    reviewCount: 95,
+    variants: [
+      { id: "250g", label: "250g", price: 320 },
+      { id: "500g", label: "500g", price: 600 },
+      { id: "1kg", label: "1kg", price: 1150 }
+    ]
+  },
+  {
+    id: "sunni-onda",
+    name: "Sunni Onda",
+    category: "Sweets",
+    price: 280,
+    image: "https://5.imimg.com/data5/SELLER/Default/2021/1/TV/JY/MU/33671567/sunni-undalu-500x500.jpg",
+    rating: 4.3,
+    reviewCount: 85,
+    variants: [
+      { id: "250g", label: "250g", price: 280 },
+      { id: "500g", label: "500g", price: 520 },
+      { id: "1kg", label: "1kg", price: 1000 }
+    ]
+  },
+  {
+    id: "ravva-onda",
+    name: "Ravva Onda",
+    category: "Sweets",
+    price: 290,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy25heV1VP9w3l3KcRcw2fSG1U2liqvhRZI6sfcFGQJIPsBd9Yc350X8FuCwJIJtabq14&usqp=CAU",
+    rating: 4.3,
+    reviewCount: 90,
+    variants: [
+      { id: "250g", label: "250g", price: 290 },
+      { id: "500g", label: "500g", price: 540 },
+      { id: "1kg", label: "1kg", price: 1050 }
+    ]
+  },
+
+    {
+    id: "gavvalu",
+    name: "Gavvalu",
+    category: "Sweets",
+    price: 290,
+    image: "https://m.media-amazon.com/images/I/61gKKEgVhhL._UF1000,1000_QL80_.jpg",
+    rating: 4.3,
+    reviewCount: 90,
+    variants: [
+      { id: "250g", label: "250g", price: 290 },
+      { id: "500g", label: "500g", price: 540 },
+      { id: "1kg", label: "1kg", price: 1050 }
     ]
   },
 
