@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/hooks/useCart";
 import { Badge } from "@/components/ui/badge";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import logo from "@/assets/logo.png";
+import { SearchRecommendations } from "./SearchRecommendations";
 
 const categories = [
   "South Indian Snacks",
@@ -26,6 +28,31 @@ export function Header() {
   const { openCart, getItemCount } = useCart();
   const itemCount = getItemCount();
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("");
+  const [showRecommendations, setShowRecommendations] = useState(false);
+
+  const handleSearchSubmit = () => {
+    if (searchValue.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchValue.trim())}`);
+      setShowRecommendations(false);
+    } else {
+      navigate('/products');
+      setShowRecommendations(false);
+    }
+  };
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearchSubmit();
+    }
+  };
+
+  const handleSelectRecommendation = (query: string) => {
+    setSearchValue(query);
+    navigate(`/products?search=${encodeURIComponent(query)}`);
+    setShowRecommendations(false);
+  };
 
   return (
     <>
@@ -45,19 +72,32 @@ export function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
               <Link to="/">
-                <img src={logo} alt="JoshnaFoods logo" className="h-[10vh] w-auto hover:opacity-80 transition-opacity" />
+                <img src={logo} alt="JoshnaFoods logo" className="h-[15vh] w-auto hover:opacity-80 transition-opacity" />
               </Link>
             </div>
 
             {/* Search Bar */}
-            <div className="hidden md:flex flex-1 max-w-md mx-8">
+            <div className="hidden md:flex flex-1 max-w-md mx-8 relative">
               <div className="relative w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  placeholder="Search for snacks, pickles, sweets..." 
+                <Input
+                  placeholder="Search for snacks, pickles, sweets..."
                   className="pl-10 rounded-full border-border"
+                  value={searchValue}
+                  onChange={(e) => {
+                    setSearchValue(e.target.value);
+                    setShowRecommendations(true);
+                  }}
+                  onKeyDown={handleSearchKeyDown}
+                  onFocus={() => setShowRecommendations(true)}
+                  onBlur={() => setTimeout(() => setShowRecommendations(false), 200)}
                 />
               </div>
+              <SearchRecommendations 
+                searchQuery={searchValue} 
+                onSelectRecommendation={handleSelectRecommendation} 
+                isVisible={showRecommendations} 
+              />
             </div>
 
             {/* Right Actions */}
@@ -121,14 +161,27 @@ export function Header() {
 
 
           {/* Mobile Search */}
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 relative">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="Search products..." 
+              <Input
+                placeholder="Search products..."
                 className="pl-10 rounded-full"
+                value={searchValue}
+                onChange={(e) => {
+                  setSearchValue(e.target.value);
+                  setShowRecommendations(true);
+                }}
+                onKeyDown={handleSearchKeyDown}
+                onFocus={() => setShowRecommendations(true)}
+                onBlur={() => setTimeout(() => setShowRecommendations(false), 200)}
               />
             </div>
+            <SearchRecommendations 
+              searchQuery={searchValue} 
+              onSelectRecommendation={handleSelectRecommendation} 
+              isVisible={showRecommendations} 
+            />
           </div>
         </div>
       </header>

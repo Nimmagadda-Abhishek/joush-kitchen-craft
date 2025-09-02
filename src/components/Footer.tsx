@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/footer.png";
 
 export function Footer() {
   return (
@@ -54,11 +54,15 @@ export function Footer() {
                 <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent">
                   <Facebook className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent">
+              <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent" asChild>
+                <a href="https://www.instagram.com/joushnafoods/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent">
-                  <Twitter className="h-5 w-5" />
+                </a>
+              </Button>
+                <Button variant="ghost" size="icon" className="text-surface-foreground/60 hover:text-accent" asChild>
+                  <a href="https://x.com/JoshnaFoods" target="_blank" rel="noopener noreferrer">
+                    <Twitter className="h-5 w-5" />
+                  </a>
                 </Button>
               </div>
             </div>

@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -8,16 +9,16 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { 
-  Search, 
-  Filter, 
+import {
+  Search,
+  Filter,
   SlidersHorizontal,
   Grid3X3,
   List,
@@ -27,6 +28,7 @@ import {
 import { products } from "@/data/products";
 
 const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("featured");
@@ -34,6 +36,16 @@ const Products = () => {
   const [spiceLevel, setSpiceLevel] = useState("all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [showFilters, setShowFilters] = useState(false);
+
+  // Sync search query with URL params
+  useEffect(() => {
+    const searchParam = searchParams.get('search');
+    if (searchParam) {
+      setSearchQuery(searchParam);
+    } else {
+      setSearchQuery("");
+    }
+  }, [searchParams]);
 
   const categories = [
     "all",
@@ -68,11 +80,17 @@ const Products = () => {
   ];
 
   const filteredProducts = useMemo(() => {
+    const searchLower = searchQuery.toLowerCase();
     let filtered = products.filter(product => {
-      // Search filter
-      if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-          !product.category.toLowerCase().includes(searchQuery.toLowerCase())) {
-        return false;
+      // Search filter with recommendations
+      if (searchQuery) {
+        const nameMatch = product.name.toLowerCase().includes(searchLower);
+        const categoryMatch = product.category.toLowerCase().includes(searchLower);
+        const badgesMatch = product.badges?.some(badge => badge.toLowerCase().includes(searchLower));
+        const spiceLevelMatch = product.spiceLevel?.toString() === searchLower;
+        if (!(nameMatch || categoryMatch || badgesMatch || spiceLevelMatch)) {
+          return false;
+        }
       }
 
       // Category filter
