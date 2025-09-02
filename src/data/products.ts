@@ -261,23 +261,7 @@ export const products: Product[] = [
   },
 
   // Authentic Snacks
-  {
-    id: "bhujia-classic",
-    name: "Classic Aloo Bhujia",
-    category: "Authentic Snacks",
-    price: 160,
-    originalPrice: 200,
-    image: "https://www.ohmyveg.co.uk/wp-content/uploads/2024/12/aloo-bhujia.jpg",
-    rating: 4.6,
-    reviewCount: 298,
-    badges: ["BESTSELLER"],
-    spiceLevel: 2,
-    variants: [
-      { id: "250g", label: "250g", price: 200, originalPrice: 250 },
-      { id: "500g", label: "500g", price: 375, originalPrice: 450 },
-      { id: "1kg", label: "1kg", price: 720, originalPrice: 850 }
-    ]
-  },
+
   {
     id: "sev-bombay",
     name: "Bombay Thick Sev",
