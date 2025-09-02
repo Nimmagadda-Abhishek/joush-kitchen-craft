@@ -534,6 +534,51 @@ export const products: Product[] = [
     ]
   },
   {
+    id: "maagaya-pickle",
+    name: "Maagaya",
+    category: "Pickles",
+    subcategory: "Veg Pickles",
+    price: 260,
+    image: "https://vellankifoods.com/cdn/shop/products/magaya_pickle_mango_thokku.jpg?v=1680180793",
+    rating: 4.3,
+    reviewCount: 50,
+    spiceLevel: 2,
+    variants: [
+      { id: "250g", label: "250g", price: 320 },
+      { id: "500g", label: "500g", price: 600 }
+    ]
+  },
+  {
+    id: "kakara-kaya-pickle",
+    name: "Kakara Kaya",
+    category: "Pickles",
+    subcategory: "Veg Pickles",
+    price: 270,
+    image: "https://bandarmithai.in/cdn/shop/products/kakarakayapickle_1_1.jpg?v=1640363902",
+    rating: 4.4,
+    reviewCount: 45,
+    spiceLevel: 2,
+    variants: [
+      { id: "250g", label: "250g", price: 330 },
+      { id: "500g", label: "500g", price: 620 }
+    ]
+  },
+  {
+    id: "mullankada-pickle",
+    name: "Mullankada",
+    category: "Pickles",
+    subcategory: "Veg Pickles",
+    price: 250,
+    image: "https://i.ytimg.com/vi/3fGHSo9HVCs/sddefault.jpg",
+    rating: 4.2,
+    reviewCount: 40,
+    spiceLevel: 2,
+    variants: [
+      { id: "250g", label: "250g", price: 310 },
+      { id: "500g", label: "500g", price: 580 }
+    ]
+  },
+  {
     id: "green-chilli-pickle",
     name: "Green Chilli Pickle",
     category: "Pickles",
@@ -685,7 +730,7 @@ export const products: Product[] = [
     category: "Pickles",
     subcategory: "Non-Veg Pickles",
     price: 360,
-    image: "https://m.media-amazon.com/images/X/bxt1/M/rbxt1RaiMBxzUks._SL640_QL75_FMwebp_.jpg",
+    image: "https://i0.wp.com/foodonfarmpickles.com/wp-content/uploads/2025/05/1000252446.png?fit=3000%2C2002&ssl=1",
     rating: 4.6,
     reviewCount: 134,
     spiceLevel: 3,
@@ -717,7 +762,7 @@ export const products: Product[] = [
     category: "Pickles",
     subcategory: "Non-Veg Pickles",
     price: 380,
-    image: "https://images.meesho.com/images/products/167421124/ddshl_512.webp?width=512",
+    image: "https://images.aasaan.shop/stores/pavifoods/products/product_images/product_1652353435912.jpeg",
     rating: 4.6,
     reviewCount: 112,
     spiceLevel: 3,
