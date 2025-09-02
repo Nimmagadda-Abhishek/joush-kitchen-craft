@@ -38,92 +38,19 @@ const Profile = () => {
   const [showPassword, setShowPassword] = useState(false);
   
   const [userInfo, setUserInfo] = useState({
-    firstName: "Priya",
-    lastName: "Sharma",
-    email: "priya.sharma@email.com",
-    phone: "+91 98765 43210",
-    dateOfBirth: "1990-05-15",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    dateOfBirth: "",
     avatar: "/placeholder.svg"
   });
 
-  const [addresses, setAddresses] = useState([
-    {
-      id: 1,
-      type: "Home",
-      name: "Priya Sharma",
-      address: "123 MG Road, T. Nagar",
-      city: "Chennai",
-      state: "Tamil Nadu",
-      pincode: "600017",
-      phone: "+91 98765 43210",
-      isDefault: true
-    },
-    {
-      id: 2,
-      type: "Office",
-      name: "Priya Sharma",
-      address: "456 IT Park, OMR",
-      city: "Chennai",
-      state: "Tamil Nadu",
-      pincode: "600096",
-      phone: "+91 98765 43210",
-      isDefault: false
-    }
-  ]);
+  const [addresses, setAddresses] = useState([]);
 
-  const [orders] = useState([
-    {
-      id: "JF2024001",
-      date: "2024-01-15",
-      status: "Delivered",
-      total: 850,
-      items: 3,
-      image: "/placeholder.svg"
-    },
-    {
-      id: "JF2024002",
-      date: "2024-01-10",
-      status: "In Transit",
-      total: 650,
-      items: 2,
-      image: "/placeholder.svg"
-    },
-    {
-      id: "JF2024003",
-      date: "2024-01-05",
-      status: "Processing",
-      total: 1200,
-      items: 5,
-      image: "/placeholder.svg"
-    }
-  ]);
+  const [orders] = useState([]);
 
-  const [wishlist] = useState([
-    {
-      id: "murukku-classic",
-      name: "Traditional Rice Murukku",
-      price: 180,
-      originalPrice: 220,
-      image: "/placeholder.svg",
-      inStock: true
-    },
-    {
-      id: "mango-pickle",
-      name: "Authentic Mango Pickle",
-      price: 250,
-      originalPrice: 300,
-      image: "/placeholder.svg",
-      inStock: true
-    },
-    {
-      id: "mysore-pak",
-      name: "Traditional Mysore Pak",
-      price: 320,
-      originalPrice: 380,
-      image: "/placeholder.svg",
-      inStock: false
-    }
-  ]);
+  const [wishlist] = useState([]);
 
   const handleSaveProfile = () => {
     setIsEditing(false);
